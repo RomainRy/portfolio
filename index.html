@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Romain Royer Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="img/icons_portfolio.png"/>
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <div class="profile-image">
+        <img src="img/Moi-fococlipping-standard.png" alt="Profile Picture">
+      </div>
+      <div class="profile-info">
+        <h2>Romain Royer</h2>
+        <p>Développeur web</p>
+        <div class="underline"></div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <img src="img/icons_phone.png" alt="">
+            <p>07 67 05 31 32</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <img src="img/icons_mail.png" alt="">
+            <p>romain.royer.dev@gmail.com</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <img src="img/icons_location.png" alt="">
+            <p>Chatou, France</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-calendar-alt"></i>
+            <img src="img/icons_calendrier.png" alt="">
+            <p>Né le 22 février 2004</p>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/romain-royer-70a17724b/" target="_blank"><img src="img/linkedin_blanc.png" alt=""></a>
+          <a href="https://github.com/RomainRy" target="_blank"><img src="img/github_blanc.png" alt=""></a>
+        </div>
+        
+      </div>
+    </div>
+    <div class="right-section">
+      <ul>
+        <li><button onclick="showSection('about')">About</button></li>
+        <li><button onclick="showSection('skills')">Skills</button></li>
+        <li><button onclick="showSection('cv')">CV</button></li> 
+      </ul>
+
+      <div id="about" class="about-section">
+        <h2>About</h2>
+        <div class="underline2"></div>
+        <p>Étudiant de 20 ans passionné et innovant en développement web, expert en HTML, CSS, JavaScript, doté d'une capacité à mener à bien les projets dans les délais impartis, avec un excellent esprit d'équipe, motivé par une passion de longue date pour la création et une aspiration à une future carrière dans le domaine de l'informatique.</p>
+        <p>Diplômé en informatique, j'ai consolidé mes compétences techniques à travers divers projets académiques et personnels, notamment en HTML, CSS, JavaScript, PHP ainsi que des Framework comme ExpressJs ou encore Vue.Js, j’ai acquis des connaissances en gestion de contenu avec WordPress et en manipulation de bases de données avec SQL. À 20 ans, j'ai déjà acquis une solide base dans le développement informatique, ainsi qu'une expérience pratique acquise dans le cadre de projets en équipe. Cette combinaison d'apprentissages théoriques et pratiques m'a permis de développer une approche créative dans la résolution de problèmes et une capacité à collaborer efficacement au sein d'une équipe.</p>
+      </div>
+    
+      <div id="skills" class="resume-section hidden">
+        <h2>Skills</h2>
+        <div class="underline2"></div>
+        <h3>Mes compétences soft-skills :</h3>
+        <p>- Esprit d'équipe <br> - Résolution de problèmes <br> - Pensée critique <br> - Gestion du stress <br> - Curieux</p>
+        <h3>Mes compétences hard-skills :</h3>
+        <p>- HTML <br> - CSS <br> - Javascript <br> - PHP <br> - ExpresJs <br> - WordPress <br> - Vite</p>
+        <h3>Perfectionement en cour :</h3>
+        <p>- React <br> - tailwind</p>
+      </div>
+    
+      <div id="cv" class="cv-section hidden">
+        <h2>Voici mon CV</h2>
+        <div class="underline2"></div>
+        <img src="img/Romain.png" alt="">
+      </div>
+    </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  function showSection(sectionId) {
+    // Cache toutes les sections
+    document.querySelectorAll('.right-section > div').forEach(section => {
+      section.classList.add('hidden');
+    });
+
+    // Affiche la section cliquée
+    document.getElementById(sectionId).classList.remove('hidden');
+  }
+
+
+  const numParticles = 100; // Number of particles
+    const particles = [];
+
+    // Initialize particles
+    for (let i = 0; i < numParticles; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      
+      // Set random initial position
+      particle.x = Math.random() * window.innerWidth;
+      particle.y = Math.random() * window.innerHeight;
+
+      // Set random velocity (movement speed and direction)
+      particle.velocityX = (Math.random() - 0.5) * 2; // Horizontal velocity
+      particle.velocityY = (Math.random() - 0.5) * 2; // Vertical velocity
+
+      // Apply initial position
+      particle.style.left = particle.x + 'px';
+      particle.style.top = particle.y + 'px';
+
+      particles.push(particle);
+      document.body.appendChild(particle);
+    }
+
+    function animateParticles() {
+      particles.forEach(particle => {
+        // Update position based on velocity
+        particle.x += particle.velocityX;
+        particle.y += particle.velocityY;
+
+        // Check for collision with screen boundaries and reverse velocity (bounce effect)
+        if (particle.x <= 0 || particle.x >= window.innerWidth - 5) {
+          particle.velocityX *= -1; // Reverse horizontal direction
+        }
+        if (particle.y <= 0 || particle.y >= window.innerHeight - 5) {
+          particle.velocityY *= -1; // Reverse vertical direction
+        }
+
+        // Apply the updated position
+        particle.style.left = particle.x + 'px';
+        particle.style.top = particle.y + 'px';
+      });
+
+      // Continuously animate
+      requestAnimationFrame(animateParticles);
+    }
+
+    // Start the animation
+    animateParticles();
+
+    // Update particles' positions if the window is resized
+    window.addEventListener('resize', () => {
+      particles.forEach(particle => {
+        particle.x = Math.random() * window.innerWidth;
+        particle.y = Math.random() * window.innerHeight;
+      });
+    });
+</script>
+</html>
