@@ -7,7 +7,7 @@ body {
   }
 
   .particle {
-    position: absolute; /* Fix particle position to viewport */
+    position: absolute; 
     width: 5px;
     height: 5px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -55,7 +55,7 @@ body {
     height: 100%;
     object-fit: cover;
   }
-  
+
   .profile-info h2 {
     font-size: 24px;
     font-weight: bold;
@@ -83,6 +83,46 @@ body {
     height: 3px; 
     background-color: #ececec;  
   }
+
+  .hardkills{
+    background-color:#353632 ;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .hardkills img{
+    height: 50px;
+    object-fit: cover;
+  }
+
+  .hardkills p{
+    margin: 5px 0 5px 0;
+  }
+
+  .perfectionement{
+    background-color:#353632 ;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 50%;
+  }
+
+  .perfectionement img{
+    height: 50px;
+    object-fit: cover;
+  }
+
+  .perfectionement p{
+    margin: 5px 0 5px 0;
+  }
+
   
   .social-links {
     display: flex;
@@ -92,7 +132,7 @@ body {
   }
 
   .social-links a {
-    transition: height 0.3s ease; /* Ajoutez cette ligne pour une transition plus lente */
+    transition: height 0.3s ease;
   }
 
   .social-links a:hover{
@@ -167,10 +207,12 @@ body {
     gap: 25px;
     background-color: #353632;
     width: 25%;
+    min-width: 200px;
     margin-left: auto;
     margin-right: 0;
     padding: 10px;
     border-radius: 12px;
+    box-sizing: border-box;
   }
 
   .right-section button{
@@ -265,17 +307,23 @@ body {
     align-items: center;
   }
   
-  @media (max-width: 992px) {
+  @media (max-width: 900px) {
     .container {
       flex-direction: column;
     }
   
     .left-section, .right-section {
-      width: 100%;
+      width: 90%;
       margin-bottom: 30px;
     }
   
     .sidebar {
       width: 100%;
+    }
+    .particle{
+      display: none;
+    }
+    body{
+      overflow: scroll;
     }
   }
