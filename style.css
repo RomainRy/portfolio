@@ -81,7 +81,7 @@ body {
   .underline2 {
     width: 5%;
     height: 3px; 
-    background-color: #ececec;  
+    background-color: gold;  
   }
 
   .hardkills{
@@ -92,6 +92,7 @@ body {
     justify-content: space-around;
     flex-wrap: wrap;
     text-align: center;
+    gap: 15px;
   }
 
   .hardkills img{
@@ -222,7 +223,7 @@ body {
   }
 
   .right-section button:hover{
-    color: #007bff;
+    color: gold;
     cursor: pointer;
   }
   
