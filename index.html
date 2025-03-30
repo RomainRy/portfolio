@@ -14,7 +14,7 @@
         <img src="img/Moi-fococlipping-standard.png" alt="Profile Picture">
       </div>
       <div class="profile-info">
-        <h2>Romain Royer</h2>
+        <h2 class="animated-text">Romain Royer</h2>
         <p>Développeur web</p>
         <div class="underline"></div>
         <div class="contact-info">
@@ -45,12 +45,15 @@
         </div>
         
       </div>
+      <!-- <a href="page/game.html" class="download-cv">CV2</a>
+      <a href="#" class="download-cv" onclick="redirectToGame()">CV2</a> -->
     </div>
     <div class="right-section">
       <ul>
         <li><button onclick="showSection('about')">About</button></li>
         <li><button onclick="showSection('skills')">Skills</button></li>
-        <li><button onclick="showSection('cv')">CV</button></li> 
+        <!-- <li><button onclick="showSection('cv')">CV</button></li>  -->
+        <li><button onclick="redirectToGame('cv')">CV</button></li>
       </ul>
 
       <div id="about" class="about-section">
@@ -99,13 +102,21 @@
             <img src="img/vite.png" alt="">
             <p>Vite</p>
           </div>
+          <div>
+            <img src="img/React.webp" alt="">
+            <p>React</p>
+          </div>
+          <div>
+            <img src="img/Three.js.png" alt="">
+            <p>Three.js</p>
+          </div>
         </div>
 
         <h3>Perfectionement en cours :</h3>
         <div class="perfectionement">
           <div>
-            <img src="img/React.webp" alt="">
-            <p>React</p>
+            <img src="img/symfony.webp" alt="">
+            <p>Symfony</p>
           </div>
           <div>
             <img src="img/tailwind.svg" alt="">
@@ -125,6 +136,12 @@
 </body>
 
 <script>
+
+  function redirectToGame() {
+    localStorage.setItem('selectedCircuit', '../map_cv.glb');
+    window.location.href = 'page/game.html';
+  }
+
   function showSection(sectionId) {
     // Cache toutes les sections
     document.querySelectorAll('.right-section > div').forEach(section => {

@@ -1,0 +1,32 @@
+*{
+    font-family: sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10; 
+    color: white; 
+}
+
+button{
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Positionné à droite */
+    z-index: 10;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
